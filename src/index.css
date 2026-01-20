@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #2c1810;
+  --primary-accent: #8b5a3c;
+  --gold: #d4af37;
+  --dark: #1a1410;
+  --light-bg: #f9f7f4;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--light-bg);
+  color: var(--dark);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+h2 {
+  font-size: clamp(1.875rem, 4vw, 3rem);
+}
+
+.hero-gradient {
+  background: linear-gradient(135deg, #2c1810 0%, #3d2517 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -20%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+  animation: float 20s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(30px, 30px); }
+}
+
+.btn-primary {
+  @apply bg-amber-700 hover:bg-amber-800 text-white font-semibold px-8 py-3 rounded-md transition-all duration-300 shadow-lg hover:shadow-2xl border border-amber-600 hover:border-amber-700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.875rem;
+}
+
+.btn-secondary {
+  @apply border-2 border-white text-white hover:bg-white hover:text-amber-700 font-semibold px-8 py-3 rounded-md transition-all duration-300;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.875rem;
+}
+
+.btn-ghost {
+  @apply text-amber-700 hover:bg-amber-50 font-semibold px-4 py-2 rounded-md transition-all;
+}
+
+.form-input {
+  @apply w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:border-amber-700 focus:ring-2 focus:ring-amber-100 transition-all bg-white;
+}
+
+.form-input::placeholder {
+  color: #999;
+}
+
+.review-card {
+  @apply bg-white p-8 rounded-md shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100;
+  backdrop-filter: blur(10px);
+}
+
+.review-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--gold);
+}
+
+.image-overlay {
+  @apply absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50 group-hover:from-black/10 transition-all duration-500;
+}
+
+.menu-item {
+  @apply transform transition-all duration-500 hover:shadow-2xl;
+  animation: fadeInUp 0.8s ease-out backwards;
+}
+
+.menu-item:hover {
+  transform: translateY(-12px);
+}
+
+.gallery-item {
+  @apply transform transition-all duration-500;
+  animation: scaleUp 0.8s ease-out backwards;
+}
+
+.gallery-item:hover {
+  transform: scale(1.02);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.aos-animate {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.aos-fade-up {
+  animation-name: fadeInUp;
+}
+
+.aos-slide-in-left {
+  animation-name: slideInLeft;
+}
+
+.aos-slide-in-right {
+  animation-name: slideInRight;
+}
+
+.aos-scale-up {
+  animation-name: scaleUp;
+}
