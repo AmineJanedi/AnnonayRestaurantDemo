@@ -308,14 +308,34 @@ function Reservation() {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+
+  const form = e.currentTarget;
+  const formDataEncoded = new FormData(form);
+
+  try {
+    await fetch('/', {
+      method: 'POST',
+      body: formDataEncoded,
+    });
+
     setSubmitted(true);
+
     setTimeout(() => {
       setSubmitted(false);
-      setFormData({ name: '', phone: '', people: '2', date: '', time: '19:30' });
+      setFormData({
+        name: '',
+        phone: '',
+        people: '2',
+        date: '',
+        time: '19:30',
+      });
     }, 3000);
-  };
+  } catch (error) {
+    alert('Erreur lors de l’envoi. Veuillez réessayer.');
+  }
+};
 
   return (
     <section id="reservation" className="py-24 bg-gray-50">
@@ -341,7 +361,14 @@ function Reservation() {
             </p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-6">
+<form
+  name="reservation"
+  method="POST"
+  data-netlify="true"
+  onSubmit={handleSubmit}
+  className="space-y-6"
+>
+  <input type="hidden" name="form-name" value="reservation" />
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-semibold text-gray-900 mb-2">
