@@ -10,7 +10,7 @@ const APP_CONFIG = {
   city: "Annonay",
   cuisine: "Gastronomie Française d'Excellence",
   phone: "+33 4 75 XX XX XX",
-  whatsapp: "+33612345678",
+  whatsapp: "+21692603283",
   instagram: "https://instagram.com/lecielétoilé",
   address: "15 Rue Montgolfier, 07100 Annonay",
   hours: {
