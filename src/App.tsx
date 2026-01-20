@@ -314,8 +314,8 @@ const handleSubmit = (e: React.FormEvent) => {
   e.preventDefault();
 
   emailjs.send(
-    'SERVICE_ID',
-    'TEMPLATE_ID',
+    'service_9lcl3u7',
+    'template_omusjgs',
     {
       name: formData.name,
       phone: formData.phone,
@@ -323,7 +323,7 @@ const handleSubmit = (e: React.FormEvent) => {
       date: formData.date,
       time: formData.time,
     },
-    'PUBLIC_KEY'
+    'jCwTXOy00xq3Sza7P'
   )
   .then(() => {
     setSubmitted(true);
