@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { Star, MapPin, Clock, Phone, Instagram, ChevronRight, Sparkles } from 'lucide-react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import emailjs from 'emailjs-com';
+
 
 const APP_CONFIG = {
   restaurant: "Le Ciel Étoilé",
@@ -308,33 +310,32 @@ function Reservation() {
     });
   };
 
-const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+const handleSubmit = (e: React.FormEvent) => {
   e.preventDefault();
 
-  const form = e.currentTarget;
-  const formDataEncoded = new FormData(form);
-
-  try {
-    await fetch('/', {
-      method: 'POST',
-      body: formDataEncoded,
-    });
-
+  emailjs.send(
+    'SERVICE_ID',
+    'TEMPLATE_ID',
+    {
+      name: formData.name,
+      phone: formData.phone,
+      people: formData.people,
+      date: formData.date,
+      time: formData.time,
+    },
+    'PUBLIC_KEY'
+  )
+  .then(() => {
     setSubmitted(true);
-
     setTimeout(() => {
       setSubmitted(false);
-      setFormData({
-        name: '',
-        phone: '',
-        people: '2',
-        date: '',
-        time: '19:30',
-      });
+      setFormData({ name: '', phone: '', people: '2', date: '', time: '19:30' });
     }, 3000);
-  } catch (error) {
-    alert('Erreur lors de l’envoi. Veuillez réessayer.');
-  }
+  })
+  .catch(err => {
+    alert("Erreur lors de l'envoi");
+    console.error(err);
+  });
 };
 
   return (
