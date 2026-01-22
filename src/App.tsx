@@ -67,7 +67,7 @@ function Hero() {
         </div>
 
         <div className="flex flex-col md:flex-row justify-center gap-12 mt-20" data-aos="fade-up" data-aos-delay="500">
-          <div className="text-white text-center border-l border-r border-amber-700 px-8 md:border-l-0 md:border-r-0">
+          <div className="text-white text-center">
             <p className="text-4xl font-bold text-amber-300">{APP_CONFIG.rating}</p>
             <div className="flex gap-1 justify-center mt-2">
               {[...Array(5)].map((_, i) => (
@@ -568,8 +568,9 @@ function FloatingCTA() {
     <div className="fixed bottom-6 right-6 flex flex-col gap-3 z-40 md:hidden">
       <button
         onClick={handleCall}
-        className="btn-primary rounded-full w-14 h-14 flex items-center justify-center shadow-lg hover:shadow-xl hover:scale-110 transition-transform"
+        className="w-14 h-14 rounded-full bg-amber-700 hover:bg-amber-800 text-white flex items-center justify-center shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300"
         aria-label="Appeler"
+        title="Appeler le restaurant"
       >
         <Phone size={24} />
       </button>
