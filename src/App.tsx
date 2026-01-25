@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react';
-import { Star, MapPin, Clock, Phone, Instagram, ChevronRight, Sparkles } from 'lucide-react';
+import { Star, MapPin, Clock, Phone, Instagram, ChevronRight, Sparkles, ChevronLeft, X } from 'lucide-react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import emailjs from 'emailjs-com';
 
 
 const APP_CONFIG = {
-  restaurant: "Le Ciel Étoilé",
+  restaurant: "Restaurant Le Dôme",
   city: "Annonay",
   cuisine: "Gastronomie Française d'Excellence",
-  phone: "+33 4 75 XX XX XX",
-  whatsapp: "+21692603283",
+  phone: "+33475670943",
+  whatsapp: "+33475670943",
   instagram: "https://instagram.com/lecielétoilé",
   address: "15 Rue Montgolfier, 07100 Annonay",
   hours: {
@@ -147,19 +147,19 @@ function Menu() {
     {
       name: "Foie gras poêlé",
       description: "Avec chutney de figues et brioche toastée",
-      image: "https://images.pexels.com/photos/1092730/pexels-photo-1092730.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: "https://restauranttandem.com/wp-content/uploads/2016/11/Entre%CC%81e-de-foie-gras-poe%CC%82le%CC%81.jpg.webp",
       price: "28€"
     },
     {
       name: "Huître en persillade",
       description: "Sauce beurre blanc et échalotes",
-      image: "https://images.pexels.com/photos/1410235/pexels-photo-1410235.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: "https://kissmychef.com/wp-content/uploads/2024/12/huitres_parmesan.png",
       price: "22€"
     },
     {
       name: "Côte de veau fermier",
       description: "Sauce moutarde ancienne, légumes de saison",
-      image: "https://images.pexels.com/photos/821365/pexels-photo-821365.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: "https://www.la-viande.fr/sites/default/files/styles/facebook/public/recettes/images/C%C3%B4tes-de-veau-po%C3%AAl%C3%A9es%2C-f%C3%A8ves-aux-%C3%A9chalotes%2C-tomates-et-citrons-confits.jpg?itok=YwqxoMUv",
       price: "36€"
     },
     {
@@ -394,7 +394,7 @@ const handleSubmit = (e: React.FormEvent) => {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  placeholder="+33 6 12 34 56 78"
+                  placeholder="+33475670943"
                   required
                   className="form-input"
                 />
